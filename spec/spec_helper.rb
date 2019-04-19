@@ -58,6 +58,7 @@ RSpec.configure do |config|
         vlan: nil,
         memory_mb: nil,
         cpu_count: nil,
+        core_per_cpu_count: nil,
         mac: nil,
         addressType: nil,
         cpu_reservation: nil,

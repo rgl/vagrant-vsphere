@@ -25,6 +25,7 @@ module VagrantPlugins
       attr_accessor :mac
       attr_accessor :memory_mb
       attr_accessor :cpu_count
+      attr_accessor :core_per_cpu_count
       attr_accessor :cpu_reservation
       attr_accessor :mem_reservation
       attr_accessor :extra_config

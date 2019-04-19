@@ -50,6 +50,9 @@ module VagrantPlugins
             env[:ui].info "Setting custom cpu count: #{config.cpu_count}" unless config.cpu_count.nil?
             add_custom_cpu(spec, config.cpu_count) unless config.cpu_count.nil?
 
+            env[:ui].info "Setting custom core per cpu count: #{config.core_per_cpu_count}" unless config.core_per_cpu_count.nil?
+            add_custom_core_per_cpu(spec, config.core_per_cpu_count) unless config.core_per_cpu_count.nil?
+
             env[:ui].info "Setting custom cpu reservation: #{config.cpu_reservation}" unless config.cpu_reservation.nil?
             add_custom_cpu_reservation(spec, config.cpu_reservation) unless config.cpu_reservation.nil?
 
@@ -273,6 +276,10 @@ module VagrantPlugins
 
         def add_custom_cpu(spec, cpu_count)
           spec[:config][:numCPUs] = Integer(cpu_count)
+        end
+
+        def add_custom_core_per_cpu(spec, core_per_cpu_count)
+          spec[:config][:numCoresPerSocket] = Integer(core_per_cpu_count)
         end
 
         def add_custom_cpu_reservation(spec, cpu_reservation)
